@@ -200,6 +200,12 @@ class GameObject(object):
     def updateRect(self):
         self.left, self.top, self.right, self.bottom  = self.x-self.width/2,self.y-self.height/2, self.x + self.width/2, self.y + self.height/2
         self.rect = pygame.Rect(self.left,self.top,self.width,self.height)
+
+    def displayCollisionBorder(self):
+        if self.collisionBorder == "circle" or self.game.collisionBorder == "circle":
+            pygame.draw.circle(self.game.screen,red,(int(self.x),int(self.y)),int((self.width/2+self.height/2)/2),1)
+        elif self.collisionBorder == "rectangle" or self.game.collisionBorder == "rectangle":
+            pygame.draw.rect(self.game.screen,red,self.rect,1)
                 
 
 class Image(GameObject):
