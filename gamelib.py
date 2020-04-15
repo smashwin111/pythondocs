@@ -196,6 +196,10 @@ class GameObject(object):
         self.bounce = False
         self.collisionBorder = None
         self.visible = True
+	
+    def updateRect(self):
+        self.left, self.top, self.right, self.bottom  = self.x-self.width/2,self.y-self.height/2, self.x + self.width/2, self.y + self.height/2
+        self.rect = pygame.Rect(self.left,self.top,self.width,self.height)
                 
 
 class Image(GameObject):
