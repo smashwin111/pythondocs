@@ -242,6 +242,12 @@ class Image(GameObject):
 
         self.updateRect()
         self.displayCollisionBorder()
+
+    def resizeTo(self,w,h):
+        self.original = pygame.transform.scale(self.src,(int(w),int(h)))
+        self.image = self.original
+        self.width,self.height = self.image.get_width(),self.image.get_height()
+        self.oldwidth,self.oldheight = self.width,self.height
          
 class Animation(Image):
     def __init__(self,path,sequence,game, width = 0, height = 0,frate = 1,use_alpha=True):
